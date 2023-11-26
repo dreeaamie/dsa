@@ -1,0 +1,313 @@
+// check a string palindrom
+class Recursion {
+    
+    static boolean palindrome(int i, String s){
+        
+            // Base Condition
+            // If i exceeds half of the string, means all the elements 
+            // are compared, we return true.
+            if(i>=s.length()/2) return true;
+            
+            // If start is not equal to end, not palindrome.
+            if(s.charAt(i)!=s.charAt(s.length()-i-1)) return false;
+            
+            // If both characters are same, increment i and check start+1 and end-1.
+            return palindrome(i+1,s);
+            
+
+    }
+    public static void main(String[] args) {
+
+       // Example string.
+       String s = "madam";
+       System.out.println(palindrome(0,s));
+    }
+}
+
+
+import java.io.*;
+import java.util.Arrays;
+class Test {
+  static private boolean isPalindrome(String s) {
+    int left = 0, right = s.length()-1;
+        while(left<right)
+        {
+            char l = s.charAt(left), r = s.charAt(right);
+            if(!Character.isLetterOrDigit(l)) 
+                left++;
+            else if(!Character.isLetterOrDigit(r)) 
+                right--;
+            else if(Character.toLowerCase(l)!=Character.toLowerCase(r)) 
+                return false;
+            else {
+                left++; 
+                right--;
+            }
+        }
+        return true;
+  }
+  public static void main(String[] args) {
+    String str = "ABCDCBA";
+    boolean ans = isPalindrome(str);
+
+    if (ans == true) {
+      System.out.println("Palindrome");
+    } else {
+      System.out.println("Not Palindrome");
+    }
+  }
+}
+
+
+//print all nums from 1 to n 
+#include <stdio.h>
+int funs(int n){
+  if (n>1)
+      
+      funs(n-1) ;
+     printf("%d",n);
+    
+
+or 
+if (n<=0)
+  return;
+else
+    printf("%d",n);
+funs(n-1);
+
+}
+int main(){
+    int n ;
+    printf("enter the number upto ");
+    scanf("%d",&n);
+    funs(n);
+
+    return 0;
+}
+
+
+// // n to n 
+#include<stdio.h>
+int number(int i,int n )
+{
+  if(i>n) {
+     return;}
+  printf("%d\n",i);
+//   printf("\n");
+    number( i+1,n );
+   
+}
+
+int main()
+{
+  int i,n;
+//  printf("enter start ");
+//   scanf("%d",&i);
+  printf("enter start ");
+  scanf("%d",&n);
+
+  number(i,n);
+  return 0;
+}
+
+
+// #include<stdio.h>
+// void number(int i,int n )
+// {
+//   if(i>n) {
+//      return;}
+     
+//     number( i+1,n );
+//   printf("%d\n",i);
+// }
+
+// int main()
+// {
+//   int i,n;
+// //  printf("enter start ");
+// //   scanf("%d",&i);
+//   printf("enter start ");
+//   scanf("%d",&n);
+
+//   number(1,n);
+//   return 0;
+// }
+
+// #include<stdio.h>
+// void number(int i,int n )
+// {
+//   if(i<1) {
+//      return;}
+     
+//     number( i-1,n );
+//   printf("%d\n",i);
+// }
+
+// int main()
+// {
+//   int i,n;
+// //  printf("enter start ");
+// //   scanf("%d",&i);
+//   printf("enter start ");
+//   scanf("%d",&n);
+
+//   number(n,n);
+//   return 0;
+// }
+
+
+
+#include <stdio.h>
+int funs(int n)
+{
+    if(n<0) 
+        return 0;
+else return n+funs(n-1);
+}
+
+
+int main()
+{
+    int n ;
+    printf("enter the number limit");
+    scanf("%d",&n);
+    int sum=funs(n);
+    
+printf("sum is %d",sum);
+    return 0;
+}
+
+factorial
+#include <stdio.h>
+int funs(int n)
+{
+    if(n<1) 
+        return 1;
+else return n*funs(n-1);
+}
+
+
+int main()
+{
+    int n ;
+    printf("enter the number limit");
+    scanf("%d",&n);
+    int sum=funs(n);
+    
+printf("sum is %d",sum);
+    return 0;
+}
+
+reverse of an array
+#include <stdio.h>
+
+// Function to swap two elements in an array
+void swap(int arr[], int start, int end) {
+    int temp = arr[start];
+    arr[start] = arr[end];
+    arr[end] = temp;
+}
+
+// Recursive function to reverse an array
+void reverseArray(int arr[], int start, int end) {
+    if (start >= end) {
+        return;
+    }
+
+    swap(arr, start, end);
+    reverseArray(arr, start + 1, end - 1);
+}
+
+int main() {
+    // int arr[] = {1, 2, 3, 4, 5};
+    // int size = sizeof(arr) / sizeof(arr[0]);
+
+    // printf("Original Array: ");
+    // for (int i = 0; i < size; i++) {
+    //     printf("%d ", arr[i]);
+    // }
+
+    // reverseArray(arr, 0, size - 1);
+
+    // printf("\nReversed Array: ");
+    // for (int i = 0; i < size; i++) {
+    //     printf("%d ", arr[i]);
+    // }
+
+    // printf("\n");
+    // Ask the user for the size of the array
+    int size;
+    printf("Enter the size of the array: ");
+    scanf("%d", &size);
+
+    if (size <= 0) {
+        printf("Invalid array size. Please enter a positive size.\n");
+        return 1; ; // Exit with an error code
+    }
+
+    // Declare a fixed-size array based on the user-provided size
+    int arr[size];
+
+    // Prompt the user to enter elements for the array
+    printf("Enter %d elements for the array:\n", size);
+    for (int i = 0; i < size; i++) {
+        printf("Element %d: ", i + 1);
+        scanf("%d", &arr[i]);
+    }
+
+    // Display the entered array
+    printf("Entered arraybeforee swapping: ");
+    for (int i = 0; i < size; i++) {
+        printf("%d ", arr[i]);
+    }
+    
+     reverseArray(arr,0,size-1);
+ printf("Entered arrayaafter swapping: ");
+    for (int i = 0; i < size; i++) {
+        printf("%d ", arr[i]);
+    }
+    return 0;
+}
+
+//string palindrome
+// C implementation to check if a given
+// string is palindrome or not
+#include <stdio.h>
+#include <string.h>
+
+int main()
+{
+	char str[] = { "abbba" };
+
+	// Start from leftmost and
+	// rightmost corners of str
+	int l = 0;
+	int h = strlen(str) - 1;
+
+	// Keep comparing characters
+	// while they are same
+	while (h > l) {
+		if (str[l++] != str[h--]) {
+			printf("%s is not a palindrome\n", str);
+			return 0;
+			// will return from here
+		}
+	}
+
+	printf("%s is a palindrome\n", str);
+
+	return 0;
+}
+//  gcd
+#include<stdio.h>
+int main(){
+    int num1=22,num2=44,i;
+    
+    for(i=1;i<num1&&i<num2;i++){
+        if(num1%i==0&&num2%i==0){
+           int gcd=i;
+            printf("%d\n",i);
+        }
+    }
+    return 0;
+}
